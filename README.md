@@ -1,4 +1,4 @@
-# Leetcode repository
+# Leetcode solutions repository
 
 This is [leetcode](https://leetcode.com) solutions repository.
 
