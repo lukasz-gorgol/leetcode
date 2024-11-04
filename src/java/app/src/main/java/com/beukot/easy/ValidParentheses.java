@@ -2,13 +2,20 @@ package com.beukot.easy;
 
 import java.util.Stack;
 
-/*
+/**
  * Valid Parentheses
  * https://leetcode.com/problems/valid-parentheses/description/
  * #20
  */
 public class ValidParentheses {
-    /*
+    /**
+     * Initialize new Valid Parentheses problem solver
+     */
+
+    public ValidParentheses() {
+    }
+
+    /**
      * Given a string s containing just the characters '(', ')', '{', '}',
      * '[' and ']', determine if the input string is valid.
      * 
@@ -18,6 +25,9 @@ public class ValidParentheses {
      * Open brackets must be closed in the correct order.
      * Every close bracket has a corresponding open bracket of the same type.
      * 
+     * @param s
+     *            - string containing round, box or curly brackets only
+     * @return true if the string is valid, otherwise false
      */
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();

@@ -1,12 +1,19 @@
 package com.beukot.easy;
 
-/*
+/**
  * Rotate String
  * https://leetcode.com/problems/rotate-string/description/
  * #796
  */
 public class RotateString {
-    /*
+    /**
+     * Initialize new Rotate String problem solver
+     */
+
+    public RotateString() {
+    }
+
+    /**
      * Given two strings s and goal, return true if and only if s can become
      * goal after some number of shifts on s.
      * 
@@ -15,6 +22,12 @@ public class RotateString {
      * 
      * For example, if s = "abcde", then it will be "bcdea" after one shift.
      * 
+     * @param s
+     *            - source string
+     * @param goal
+     *            - goal string
+     * @return true if s can become goal after some number of shits on s, otherwise
+     *         false
      */
     public boolean rotateString(String s, String goal) {
         if (s == null && goal == null)

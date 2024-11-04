@@ -1,17 +1,27 @@
 package com.beukot.easy;
 
-/* 
+/**
  * Binary Search
  * https://leetcode.com/problems/binary-search/description/
  * #704
  */
 public class BinarySearch {
-    /*
+    /**
+     * Initialize new Binary Search problem solver
+     */
+    public BinarySearch() {
+    }
+
+    /**
      * Given an array of integers nums which is sorted in ascending order, and an
      * integer target, write a function to search target in nums. If target exists,
      * then return its index. Otherwise, return -1.
      * 
      * You must write an algorithm with O(log n) runtime complexity.
+     * 
+     * @param nums array sorted in ascending order
+     * @param target target
+     * @return int target index if it exists or -1
      */
     public int search(int[] nums, int target) {
         if (nums == null)

@@ -1,12 +1,18 @@
 package com.beukot.easy;
 
-/* 
+/**
  * Best Time to Buy and Sell Stock
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  * #121
  */
 public class BestTimeToBuyAndSellStock {
-    /*
+    /**
+     * Initialize new Best Time to Buy and Sell Stock problem solver
+     */
+    public BestTimeToBuyAndSellStock() {
+    }
+
+    /**
      * You are given an array prices where prices[i] is the price
      * of a given stock on the ith day.
      * 
@@ -15,6 +21,10 @@ public class BestTimeToBuyAndSellStock {
      * 
      * Return the maximum profit you can achieve from this transaction.
      * If you cannot achieve any profit, return 0.
+     * 
+     * @param prices
+     *            - prices array over days
+     * @return maximum achievable profit or 0 if none
      */
     public int maxProfit(int[] prices) {
         if (prices == null)

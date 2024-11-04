@@ -1,14 +1,27 @@
 package com.beukot.easy;
 
-/* 
+/**
  * Valid Anagram
  * https://leetcode.com/problems/valid-anagram/description/
  * #242
  */
 public class ValidAnagram {
-    /*
+    /**
+     * Initialize new Valid Anagram problem solver
+     */
+
+    public ValidAnagram() {
+    }
+
+    /**
      * Given two strings s and t, return true if t is an anagram of s, and false
      * otherwise.
+     * 
+     * @param s
+     *            - source to test against
+     * @param t
+     *            - target to test against
+     * @return true if t is an anagram of s, otherwise false
      */
     public boolean isAnagram(String s, String t) {
         if (s == null || t == null)
