@@ -4,9 +4,6 @@
 package com.beukot;
 
 import org.junit.jupiter.api.Test;
-
-import com.beukot.App;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
