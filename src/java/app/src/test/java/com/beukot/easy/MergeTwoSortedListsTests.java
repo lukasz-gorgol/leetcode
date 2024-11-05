@@ -13,19 +13,19 @@ public class MergeTwoSortedListsTests {
     @Test
     void standardAssertions() {
         assertArrayEquals(new int[] { 1, 1, 2, 3, 4, 4 },
-                helper.listNodetoArray(
+                helper.listNodeToArray(
                         problem.mergeTwoLists(
-                                helper.arraytoListNode(new int[] { 1, 2, 4 }),
-                                helper.arraytoListNode(new int[] { 1, 3, 4 }))));
+                                helper.arrayToListNode(new int[] { 1, 2, 4 }),
+                                helper.arrayToListNode(new int[] { 1, 3, 4 }))));
 
-        assertArrayEquals(new int[] {}, helper.listNodetoArray(
+        assertArrayEquals(new int[] {}, helper.listNodeToArray(
                 problem.mergeTwoLists(
-                        helper.arraytoListNode(new int[] {}),
-                        helper.arraytoListNode(new int[] {}))));
+                        helper.arrayToListNode(new int[] {}),
+                        helper.arrayToListNode(new int[] {}))));
 
-        assertArrayEquals(new int[] { 0 }, helper.listNodetoArray(
+        assertArrayEquals(new int[] { 0 }, helper.listNodeToArray(
                 problem.mergeTwoLists(
-                        helper.arraytoListNode(new int[] {}),
-                        helper.arraytoListNode(new int[] { 0 }))));
+                        helper.arrayToListNode(new int[] {}),
+                        helper.arrayToListNode(new int[] { 0 }))));
     }
 }
