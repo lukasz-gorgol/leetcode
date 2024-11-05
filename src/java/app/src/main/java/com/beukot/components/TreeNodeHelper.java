@@ -2,7 +2,15 @@ package com.beukot.components;
 
 import java.util.ArrayList;
 
+/**
+ * Tree Node Helper class for Tree Node problems with arrays
+ */
 public class TreeNodeHelper {
+    /**
+     * Calculate size of the tree
+     * @param node - tree root
+     * @return size of the three
+     */
     public int treeSize(TreeNode node) {
         if (node == null)
             return 0;
@@ -11,6 +19,12 @@ public class TreeNodeHelper {
         return Math.max(lsize, rsize) + rsize + 1;
     }
 
+    /**
+     * Convert Tree Node to int array
+     * 
+     * @param node - tree root
+     * @return int array where Integer.MIN_VALUE means null
+     */
     public int[] treeNodeToArray(TreeNode node) {
         if (node == null)
             return new int[] {};
@@ -36,6 +50,12 @@ public class TreeNodeHelper {
         return output.stream().mapToInt(x -> x).toArray();
     }
 
+    /**
+     * Convert int array to Tree Node
+     * 
+     * @param arr - int array where Integer.MIN_VALUE means null
+     * @return Tree Node root
+     */
     public TreeNode arrayToTreeNode(int[] arr) {
         if (arr == null)
             return null;
@@ -69,6 +89,13 @@ public class TreeNodeHelper {
         return root;
     }
 
+    /**
+     * Find node of tree with given value 
+     * 
+     * @param root - tree root
+     * @param p - value to find
+     * @return Tree Node with expected value 
+     */
     public TreeNode findNode(TreeNode root, int p) {
         if (root == null)
             return root;

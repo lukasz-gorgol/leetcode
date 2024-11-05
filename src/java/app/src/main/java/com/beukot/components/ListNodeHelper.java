@@ -2,9 +2,15 @@ package com.beukot.components;
 
 import com.beukot.easy.MergeTwoSortedLists;
 
+/**
+ * List Node Helper class for List Node problems with arrays
+ */
 public class ListNodeHelper {
-    /*
-     * helper to convert int array to ListNode
+    /**
+     * Helper to convert int array to ListNode
+     * 
+     * @param listArray - int array to be converted to list node
+     * @return list node head
      */
     public ListNode arraytoListNode(int[] listArray) {
         ListNode root = null;
@@ -23,8 +29,11 @@ public class ListNodeHelper {
         return root;
     }
 
-    /*
-     * helper to convert int array to ListNode
+    /**
+     * Helper to convert ListNode to int array
+     * 
+     * @param listNode - head of list node
+     * @return int array
      */
     public int[] listNodetoArray(ListNode listNode) {
         int i = 0;
@@ -45,10 +54,14 @@ public class ListNodeHelper {
         return arr;
     }
 
-    /*
+    /**
      * Unit test helper method to create listnode from int array, call
      * mergeTwoLists,
      * convert ListNode to int[] and return it
+     * 
+     * @param list1 - first int array
+     * @param list2 - second int array
+     * @return second int array merged after first 
      */
     public int[] mergeTwoListsAsArray(int[] list1, int[] list2) {
         return listNodetoArray(
