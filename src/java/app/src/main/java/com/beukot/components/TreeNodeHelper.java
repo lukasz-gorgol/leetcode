@@ -1,32 +1,39 @@
 package com.beukot.components;
 
+import java.util.ArrayList;
+
 public class TreeNodeHelper {
     public int treeSize(TreeNode node) {
         if (node == null)
             return 0;
         int lsize = treeSize(node.left);
         int rsize = treeSize(node.right);
-        return  Math.max(lsize, rsize) + rsize + 1;
-    }
-
-    private void treeNodeToArrayRecursive(TreeNode node, int nodeIndex, int[] array) {
-        if(node == null) return;
-        if(nodeIndex < 0) return;
-        if(nodeIndex >= array.length) return;
-
-        array[nodeIndex] = node.val;
-        if(node.left != null) treeNodeToArrayRecursive(node.left, nodeIndex * 2 + 1, array);
-        if(node.right != null) treeNodeToArrayRecursive(node.right, nodeIndex * 2 + 2, array);
+        return Math.max(lsize, rsize) + rsize + 1;
     }
 
     public int[] treeNodeToArray(TreeNode node) {
         if (node == null)
             return new int[] {};
-        int size = treeSize(node);
-        int[] arr = new int[treeSize(node)];
-        for (int i = 0; i < size; i++) arr[i]=Integer.MIN_VALUE;
-        treeNodeToArrayRecursive(node, 0, arr);
-        return arr;
+        ArrayList<TreeNode> process = new ArrayList<>();
+        ArrayList<Integer> output = new ArrayList<>();
+        process.add(node);
+        TreeNode n;
+        while (!process.isEmpty()) {
+            n = process.remove(0);
+            if (n.val == Integer.MIN_VALUE) {
+                for (int i = process.size() - 1; i >= 0; i--) {
+                    if (process.get(i).val != Integer.MIN_VALUE) {
+                        output.add(n.val);
+                        break;
+                    }
+                }
+            } else {
+                output.add(n.val);
+                process.add(n.left == null ? new TreeNode(Integer.MIN_VALUE) : n.left);
+                process.add(n.right == null ? new TreeNode(Integer.MIN_VALUE) : n.right);
+            }
+        }
+        return output.stream().mapToInt(x -> x).toArray();
     }
 
     public TreeNode arrayToTreeNode(int[] arr) {
@@ -34,29 +41,41 @@ public class TreeNodeHelper {
             return null;
         if (arr.length == 0)
             return null;
-        TreeNode[] tnArr = new TreeNode[arr.length];
-        for (int i = arr.length - 1; i >= 0; i--) {
-            if (arr[i] == Integer.MIN_VALUE) {
-                tnArr[i] = null;
+        ArrayList<TreeNode> build = new ArrayList<>();
+        TreeNode root = new TreeNode(arr[0]);
+        boolean nextLeft = true;
+        build.add(root);
+        int len = arr.length;
+        int i = 0;
+        TreeNode n;
+        while (++i < len) {
+            if (nextLeft) {
+                if (arr[i] != Integer.MIN_VALUE) {
+                    n = new TreeNode(arr[i]);
+                    build.get(0).left = n;
+                    build.add(n);
+                }
+                nextLeft = false;
             } else {
-                tnArr[i] = new TreeNode(arr[i]);
+                if (arr[i] != Integer.MIN_VALUE) {
+                    n = new TreeNode(arr[i]);
+                    build.get(0).right = n;
+                    build.add(n);
+                }
+                build.remove(0);
+                nextLeft = true;
             }
         }
-        for (int i = arr.length - 1; i > 0; i--) {
-            if (i % 2 == 0) {
-                tnArr[(int) Math.ceil(i / 2.0) - 1].right = tnArr[i];
-            } else {
-                tnArr[(int) Math.ceil(i / 2.0) - 1].left = tnArr[i];
-            }
-        }
-
-        return tnArr[0];
+        return root;
     }
 
     public TreeNode findNode(TreeNode root, int p) {
-        if (root == null) return root;
-        if(root.val == p) return root;
-        if(root.val > p) return findNode(root.left, p);
+        if (root == null)
+            return root;
+        if (root.val == p)
+            return root;
+        if (root.val > p)
+            return findNode(root.left, p);
         return findNode(root.right, p);
     }
 }
