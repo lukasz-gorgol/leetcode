@@ -3,8 +3,8 @@ package com.beukot.medium;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-public class MinimalNumberOfChangesToMakeBinaryStringBeautifulTests {
-    public final MinimalNumberOfChangesToMakeBinaryStringBeautiful problem = new MinimalNumberOfChangesToMakeBinaryStringBeautiful();
+public class MinimumNumberOfChangesToMakeBinaryStringBeautifulTests {
+    public final MinimumNumberOfChangesToMakeBinaryStringBeautiful problem = new MinimumNumberOfChangesToMakeBinaryStringBeautiful();
 
     @Test
     void standardAssertions() {

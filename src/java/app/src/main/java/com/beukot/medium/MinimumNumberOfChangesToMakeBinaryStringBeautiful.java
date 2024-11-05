@@ -1,16 +1,16 @@
 package com.beukot.medium;
 
 /**
- * Minimal Number of Changes to Make Binary String Beautiful
+ * Minimum Number of Changes to Make Binary String Beautiful
  * https://leetcode.com/problems/minimum-number-of-changes-to-make-binary-string-beautiful/description/
  * #2914
  */
-public class MinimalNumberOfChangesToMakeBinaryStringBeautiful {
+public class MinimumNumberOfChangesToMakeBinaryStringBeautiful {
     /**
-     * Initialize new Minimal Number of Changes to Make Binary String Beautiful
+     * Initialize new Minimum Number of Changes to Make Binary String Beautiful
      * problem solver
      */
-    public MinimalNumberOfChangesToMakeBinaryStringBeautiful() {
+    public MinimumNumberOfChangesToMakeBinaryStringBeautiful() {
     }
 
     /**
