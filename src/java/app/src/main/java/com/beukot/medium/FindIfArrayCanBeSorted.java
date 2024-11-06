@@ -36,13 +36,14 @@ public class FindIfArrayCanBeSorted {
         if (len < 2)
             return true;
         int[] bits = new int[257];
-        for (int i = 0; i < 257; i++) {
-            bits[i] = 0;
-            int k = i;
-            while (k > 0) {
-                if (k != (k & 510))
-                    bits[i]++;
-                k >>= 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (bits[nums[i]] == 0) {
+                int k = nums[i];
+                while (k > 0) {
+                    if (k != (k & 510))
+                        bits[nums[i]]++;
+                    k >>= 1;
+                }
             }
         }
 
