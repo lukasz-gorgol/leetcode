@@ -47,17 +47,38 @@ public class FindIfArrayCanBeSorted {
             }
         }
 
-        int run = len - 1;
-        while (run-- > 0) {
-            for (int start = 0; start < len - 1; start++) {
-                if (nums[start] > nums[start + 1]) {
-                    if (bits[nums[start]] != bits[nums[start + 1]])
-                        return false;
-                    int swap = nums[start];
-                    nums[start] = nums[start + 1];
-                    nums[start + 1] = swap;
-                }
+        int groupMin[] = new int[len];
+        int groupMax[] = new int[len];
+        int groupBits[] = new int[len];
+        int groups = 0;
+
+        for (int i = len - 1; i > 0; i--)
+            groupMin[i] = Integer.MAX_VALUE;
+
+        int n = nums[0];
+        groupBits[0] = bits[n];
+        groupMin[0] = n;
+        groupMax[0] = n;
+
+        int ptr = 1;
+        while (ptr < len) {
+            n = nums[ptr];
+            if (bits[n] == groupBits[groups]) {
+                if (n < groupMin[groups])
+                    groupMin[groups] = n;
+                if (n > groupMax[groups])
+                    groupMax[groups] = n;
+            } else {
+                groupBits[++groups] = bits[n];
+                groupMin[groups] = n;
+                groupMax[groups] = n;
             }
+            ptr++;
+        }
+
+        while(groups > 0) {
+            if(groupMax[groups-1] > groupMin[groups]) return false;
+            groups--;
         }
         return true;
     }
